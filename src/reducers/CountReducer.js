@@ -1,11 +1,10 @@
-export const countReducer = (state = 0, action) => {
-  //action = { type: "increase", payload: 1 }
+export const counterReducer = (state=0, action) => {
   switch (action.type) {
-    case "increase": {
+    case "INCREASE": {
       return state + action.payload;
     }
-    case "decrease": {
-        return state - action.payload;
+    case "DECREASE": {
+      return state - action.payload;
     }
     default: {
       return state;

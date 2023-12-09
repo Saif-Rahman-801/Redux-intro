@@ -1,8 +1,12 @@
-import { combineReducers } from "redux";
-import { countReducer } from "./CountReducer";
-import { themeReducer } from "./themeReducer";
+// import { combineReducers } from "redux";
+// import { counterReducer } from "./CountReducer";
 
+import { combineReducers } from "redux";
+import { counterReducer } from "./CountReducer";
+
+// make the rootReducer know about other reducers
+// then create a store
+// Make the store indentify about rootReducer(the reducer that contains all the other reducers)
 export const rootReducer = combineReducers({
-  counter: countReducer,
-  theme: themeReducer,
+  counter: counterReducer,
 });

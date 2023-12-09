@@ -1,30 +1,33 @@
 // import { useReducer } from "react";
 import "./App.css";
-// import { countReducer } from "./reducers/CountReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  // const [count, dispatchCount] = useReducer(countReducer, 0);
+  // useSelector has the state parameter which is a object, it has all the states from your root reducer. and hold the value in a variable
+  const counter = useSelector((state) => {
+    return state.counter;
+  });
 
-  const counter = useSelector((state) => state.counter);
-  const theme = useSelector((state) => state.theme);
+  // It gives a dispatch option for all reducer; you can dispatch any reducer using this dispatc
   const dispatch = useDispatch();
 
   return (
     <div
       style={{
-        backgroundColor: theme,
-        padding: "10px"
+        padding: "10px",
       }}
     >
       <h2>The Count is : {counter} </h2>
-      <button onClick={() => dispatch({ type: "increase", payload: 1 })}>
+      <button onClick={() => dispatch({ type: "INCREASE", payload: 1 })}>
         Increase 1
       </button>
-      <button style={{margin:"10px"}} onClick={() => dispatch({ type: "decrease", payload: 1 })}>
+      <button
+        style={{ margin: "10px" }}
+        onClick={() => dispatch({ type: "DECREASE", payload: 2 })}
+      >
         decrease 1
       </button>
-      <button onClick={() => dispatch({ type: "red" })}>Bg-Red</button>
+      <button>Bg-Red</button>
     </div>
   );
 }
